@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <title>Timestamp Microservice | freeCodeCamp.org</title>
+      <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body>
+    <h1>Timestamp Microservice</h1>
+    <hr />
+    <div class="container">
+      <h2>Example Usage:</h2>
+      <ul>
+        <li><a id="ymd"></a></li>
+        <li><a id="parsed"></a></li>
+      </ul>
+
+      <h2>Example Output:</h2>
+      <p>
+        <code></code>
+      </p>
+    </div>
+    <div class="footer">
+      <p>
+        By <a href="https://www.freecodecamp.org/">freeCodeCamp.org</a>
+      </p>
+    </div>
+    <script>
+      const date = new Date();
+      const unixDate = Date.parse(date);
+      const utcDate = date.toUTCString();
+      const segmentDate = [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('-');
+
+      const link1 = document.querySelector(".container #ymd");
+      const link2 = document.querySelector(".container #parsed");
+      const code = document.querySelector(".container code");
+
+      code.innerText = `{"unix":${unixDate}, "utc":"${utcDate}"}`;
+      link1.innerText = `[project url]/api/${segmentDate}`;
+      link1.setAttribute("href", `api/${segmentDate}`);
+      link2.innerText = `[project url]/api/${unixDate}`;
+      link2.setAttribute("href", `api/${unixDate}`);
+    </script>
+  </body>
+</html>
